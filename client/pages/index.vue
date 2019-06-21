@@ -1,9 +1,5 @@
 <template>
-  <div class="">
-    <!-- <ImageUpload></ImageUpload>
-    <ImageShow></ImageShow>
-    <ImageInfo></ImageInfo> -->
-  </div>
+  <div>Main</div>
 </template>
 
 <script>

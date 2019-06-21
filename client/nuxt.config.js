@@ -8,7 +8,7 @@ export default {
      ** Headers of the page
      */
     head: {
-        title: pkg.name,
+        title: 'QT-EDU',
         meta: [
             { charset: 'utf-8' },
             {

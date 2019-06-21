@@ -13,3 +13,42 @@
         transform: translate(0) scale(1);
     }
 }
+
+@keyframes popRipple {
+    @for $i from 0 through 100 {
+        #{$i + 0%} {
+            background-image: radial-gradient(
+                circle at center,
+                $primary-color ($i + 0%),
+                $white ($i + 0%)
+            );
+        }
+    }
+}
+
+@keyframes popFade {
+    @for $i from 0 through 100 {
+        #{$i + 0%} {
+            background-image: radial-gradient(
+                    circle at center,
+                    rgba($primary-color, ((100 - $i) / 100)) 0% 100%
+                ),
+                radial-gradient(circle at center, $white 0% 100%);
+        }
+    }
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 1;
+    }
+    75% {
+        // transform: scale(450, 450);
+        opacity: 0.75;
+    }
+    100% {
+        // transform: scale(700, 700);
+        opacity: 1;
+    }
+}

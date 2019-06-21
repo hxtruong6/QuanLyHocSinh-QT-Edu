@@ -1,7 +1,15 @@
 <template>
   <div id="app">
     <TopBar/>
-    <nuxt/>
+    <el-container>
+      <el-aside width="15%">Aside</el-aside>
+      <el-container>
+        <el-main>
+          <nuxt/>
+        </el-main>
+        <!-- <el-footer>Footer</el-footer> -->
+      </el-container>
+    </el-container>
   </div>
 </template>
 
@@ -14,12 +22,14 @@ export default {
 };
 </script>
  
-<style>
+<style lang='scss'>
 #app {
   width: 100%;
-  height: 100%; 
+  height: 100%;
   min-height: 100vh;
   display: flex;
   flex-flow: column nowrap;
+  color: $word-color;
+  position: absolute;
 }
 </style>

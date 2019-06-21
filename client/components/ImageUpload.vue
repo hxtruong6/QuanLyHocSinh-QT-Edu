@@ -195,7 +195,7 @@ export default {
 
     &__detect {
       text-transform: uppercase;
-      background: $white-color;
+      background: $white;
       padding: 10px;
       border: 2px solid $red-color-light;
       display: inline-block;

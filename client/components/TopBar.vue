@@ -1,16 +1,13 @@
 <template>
-  <div class="topBar">
-    <el-row>
-      <el-col>
-        <div class="grid-content bg-purple-dark">
-          <el-button class="side-bar-btn" icon="el-icon-s-unfold"></el-button>
-
-          <!-- <img class="topBar__logo" src="~assets/images/butterfly-icon.png">
-          <h1 class="topBar__header">{{header}}</h1>-->
-        </div>
-      </el-col>
-    </el-row>
-  </div>
+  <el-header class="topBar">
+    <div class="side-bar-field">
+      <i v-if="show" @click="onSideBarClick" class="el-icon-s-unfold side-bar-btn"></i>
+      <i v-if="!show" @click="onSideBarClick" class="el-icon-s-fold side-bar-btn"></i>
+    </div>
+    <img class="topBar__logo" :src="getImgUrl('student.png')">
+    <h1 class="topBar__header">{{header}}</h1>
+    <!-- </div> -->
+  </el-header>
 </template>
 
 <script>
@@ -18,53 +15,63 @@ export default {
   name: "TopBar",
   data() {
     return {
-      header: "Butterfly detector"
+      show: true,
+      header: "QT - EDU"
     };
+  },
+  methods: {
+    getImgUrl(pic) {
+      return require("~/assets/images/" + pic);
+    },
+    onSideBarClick() {
+      this.show = !this.show;
+      console.log("Toogle side bar");
+    }
   }
 };
 </script>
 
 <style lang='scss' scoped>
 .topBar {
-  // background-color: $primary-color-light;
-  // width: 100%;
-  // display: flex;
-  // padding: 4px;
-  // top: 0;
-
-  // &__logo {
-  //   position: relative;
-  //   left: 20px;
-  //   padding: 3px;
-  //   max-width: 50px;
-  //   max-height: 50px;
-  //   animation: moveInLeft 1s ease-in-out;
-  // }
-
-  // &__header {
-  //   margin: auto;
-  //   text-transform: uppercase;
-  //   color: $white-color;
-  //   font-size: 2rem;
-  // }
-}
-.el-row {
-  margin-bottom: 20px;
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-.el-col {
-  border-radius: 4px;
-}
-.bg-purple-dark {
-  background: #99a9bf;
-}
-.grid-content {
+  background-color: $primary-color;
   border-radius: 4px;
   min-height: 40px;
-}
-.side-bar-btn {
-  font-size: 3rem;
+  max-height: 50px;
+  position: relative;
+  display: flex;
+
+  .side-bar-field {
+    margin: auto 0;
+  }
+  .side-bar-btn {
+    font-size: 3rem;
+    margin-left: 10px;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 4px darkgray;
+    }
+
+    &:active {
+      animation: popFade 0.5s ease-in;
+    }
+  }
+
+  &__logo {
+    position: relative;
+    left: 20px;
+    padding: 3px;
+    max-width: 40px;
+    max-height: 40px;
+    animation: moveInLeft 1s ease-in-out;
+    margin: auto 0;
+  }
+
+  &__header {
+    margin: auto;
+    text-transform: uppercase;
+    color: $white;
+    font-size: 2rem;
+  }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <TopBar/>
+    <top-bar/>
     <el-container>
       <el-aside width="15%">Aside</el-aside>
       <el-container>

@@ -1,18 +1,10 @@
 <template>
-  <el-aside class="sideBar" width="200px" style="background-color: rgb(238, 241, 246)">
-    <el-menu
-      class="sideBar__menu"
-      :collapse="isSideBarOpen"
-      :unique-opened="false"
-      :collapse-transition="false"
-      mode="vertical"
-    >
-      <!-- <sidebar-item
-        v-for="route in permission_routes"
-        :key="route.path"
-        :item="route"
-        :base-path="route.path"
-      />-->
+  <el-aside class="sideBar" width="this.$ref.menu.clientWidth">
+    <el-menu default-active="1" class="sideBar__menu" :collapse="isCollapse" ref="menu">
+      <el-menu-item index="1">
+        <i class="el-icon-date"></i>
+        <span slot="title">Schedule</span>
+      </el-menu-item>
     </el-menu>
   </el-aside>
 </template>
@@ -24,19 +16,24 @@ export default {
   name: "SideBar",
   computed: {
     ...mapState({
-      isSideBarOpen: state => state.app.isSideBarOpen
+      isCollapse: state => state.app.isSideBarOpen
     })
   },
-  data() {
-    return {};
-  }
+  methods: {}
 };
 </script>
 
 <style lang='scss' scoped>
 .sideBar {
+  max-width: 22%;
+
   &__menu {
-    background-color: $primary-color;
+    background-color: $primary-color-light;
+    height: 100%;
+    &:not(.el-menu--collapse) {
+      width: 200px;
+      min-height: 100%;
+    }
   }
 }
 </style>

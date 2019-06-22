@@ -34,5 +34,6 @@ export default {
   flex-flow: column nowrap;
   color: $word-color;
   position: absolute;
+  font-size: 1.6rem;
 }
 </style>

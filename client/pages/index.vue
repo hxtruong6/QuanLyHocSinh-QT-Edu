@@ -1,8 +1,9 @@
 <script>
-  export default {
-    fetch({ redirect }) {
-      redirect("/dashboard")
-      // redirect("/notification")
-    }
+export default {
+  fetch({ redirect }) {
+    // redirect("/dashboard")
+    redirect("/schedule");
+    // redirect("/notification")
   }
+};
 </script>

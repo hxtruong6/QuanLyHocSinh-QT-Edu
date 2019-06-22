@@ -35,7 +35,6 @@ export default {
       return require("~/assets/images/" + pic);
     },
     onSideBarClick() {
-      console.log("Hi Quoc & Truong + ", new Date());
       this.$store.commit("app/toggleCollapse");
     }
   }

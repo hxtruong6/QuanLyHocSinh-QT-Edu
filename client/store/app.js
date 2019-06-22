@@ -1,5 +1,5 @@
 export const state = () => ({
-    isSideBarOpen: true,
+    isSideBarOpen: false,
 });
 
 export const mutations = {

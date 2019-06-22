@@ -1,8 +1,8 @@
 <template>
   <el-header class="topBar">
     <div class="side-bar-field">
-      <i v-if="show" @click="onSideBarClick" class="el-icon-s-unfold side-bar-btn"></i>
-      <i v-if="!show" @click="onSideBarClick" class="el-icon-s-fold side-bar-btn"></i>
+      <i v-if="isSideBarOpen" @click="onSideBarClick" class="el-icon-s-unfold side-bar-btn"></i>
+      <i v-if="!isSideBarOpen" @click="onSideBarClick" class="el-icon-s-fold side-bar-btn"></i>
     </div>
     <img class="topBar__logo" :src="getImgUrl('student.png')">
     <h1 class="topBar__header">{{header}}</h1>
@@ -11,12 +11,23 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   name: "TopBar",
+  computed: {
+    ...mapState({
+      isSideBarOpen: state => state.app.isSideBarOpen
+    })
+  },
   data() {
     return {
-      show: true,
-      header: "QT - EDU"
+      header: "QT - EDU",
+      a2: 2,
+      a1: '5fsa',
+      objs: {
+        
+      }
     };
   },
   methods: {
@@ -24,8 +35,8 @@ export default {
       return require("~/assets/images/" + pic);
     },
     onSideBarClick() {
-      this.show = !this.show;
-      console.log("Toogle side bar");
+      console.log("Hi Quoc & Truong + ", new Date());
+      this.$store.commit("app/toggleCollapse");
     }
   }
 };

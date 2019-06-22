@@ -2,7 +2,7 @@
   <div id="app">
     <top-bar/>
     <el-container>
-      <el-aside width="15%">Aside</el-aside>
+      <side-bar/>
       <el-container>
         <el-main>
           <nuxt/>
@@ -15,9 +15,12 @@
 
 <script>
 import TopBar from "~/components/TopBar.vue";
+import SideBar from "~/components/SideBar.vue";
+
 export default {
   components: {
-    TopBar
+    TopBar,
+    SideBar
   }
 };
 </script>

@@ -5,7 +5,9 @@
       You don't have permission to view dashboard.
     </p>
   </container>-->
-  <div>hiiii</div>
+  <div>
+    <!-- <el-input placeholder="Please input password" v-model="input" show-password></el-input> -->
+  </div>
 </template>
 
 <script>
@@ -16,7 +18,8 @@ export default {
   layout: "dashboard",
   head() {
     return {
-      title: "Homepage"
+      title: "Homepage",
+      input: ""
     };
   }
   // components: { DashboardContainer, Container },

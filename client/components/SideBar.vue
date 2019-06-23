@@ -19,6 +19,10 @@
         <i class="el-icon-notebook-1"></i>
         <span slot="title">Điểm số</span>
       </el-menu-item>
+      <el-menu-item index="progress" @click="onMenuItemClick">
+        <i class="el-icon-data-analysis"></i>
+        <span slot="title">Quá trình</span>
+      </el-menu-item>
       <el-menu-item index="notification" @click="onMenuItemClick">
         <i class="el-icon-bell"></i>
         <span slot="title">Thông báo</span>

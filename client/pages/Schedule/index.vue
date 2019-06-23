@@ -32,7 +32,7 @@
           <hour v-for="h in timeLine" v-bind:key="h" :hour="h"></hour>
         </div>
       </el-col>
-      <el-col :span="3">
+      <el-col class="day" :span="3" v-for="(lessons,idx) in days" v-bind:key="'day'+idx">
         <div class="grid-content bg-purple-light">
           <lesson
             v-for="(lesson,index) in lessons"
@@ -42,24 +42,6 @@
           ></lesson>
           <!-- <lesson :lesson="lesson"></lesson> -->
         </div>
-      </el-col>
-      <el-col :span="3">
-        <div class="grid-content bg-purple"></div>
-      </el-col>
-      <el-col :span="3">
-        <div class="grid-content bg-purple-light"></div>
-      </el-col>
-      <el-col :span="3">
-        <div class="grid-content bg-purple"></div>
-      </el-col>
-      <el-col :span="3">
-        <div class="grid-content bg-purple-light"></div>
-      </el-col>
-      <el-col :span="3">
-        <div class="grid-content bg-purple"></div>
-      </el-col>
-      <el-col :span="3">
-        <div class="grid-content bg-purple-light"></div>
       </el-col>
     </el-row>
   </div>
@@ -71,16 +53,32 @@ export default {
   components: { Lesson, Hour },
   data() {
     return {
-      timeLine: Array.from({ length: 12 }, (v, k) => k + 6),
-      lessons: [
-        {
-          subject: "Math",
-          timeStart: 6,
-          timeEnd: 8.5,
-          room: "F107"
-        },
-        { subject: "IT", timeStart: 15.8, timeEnd: 17.6, room: "E07" },
-        { subject: "IT", timeStart: 10, timeEnd: 11, room: "E07" }
+      timeLine: Array.from({ length: 13 }, (v, k) => k + 6),
+      days: [
+        [
+          {
+            subject: "Math",
+            timeStart: 6,
+            timeEnd: 8.5,
+            room: "F107"
+          },
+          { subject: "IT", timeStart: 15.8, timeEnd: 17.6, room: "E07" },
+          { subject: "IT", timeStart: 10, timeEnd: 11, room: "E07" }
+        ],
+        [
+          {
+            subject: "Math",
+            timeStart: 8,
+            timeEnd: 10,
+            room: "F107"
+          },
+          { subject: "IT", timeStart: 16, timeEnd: 17.6, room: "E07" }
+        ],
+        [],
+        [{ subject: "IT", timeStart: 16, timeEnd: 17, room: "E07" }],
+        [],
+        [],
+        []
       ]
     };
   },
@@ -88,8 +86,8 @@ export default {
     calLessonPos(start, end) {
       // console.log("xxx 2003 start end: ", start, end, this.$refs.lessonTime);
 
-      const top = ((start - 6) / 12) * 100;
-      const bottom = 100 - ((end - 6) / 12) * 100;
+      const top = ((start - 6) / 13) * 100;
+      const bottom = 100 - ((end - 6) / 13) * 100;
       console.log("xxx 201 position cal: ", top, bottom);
       return { top, bottom };
     }
@@ -140,10 +138,14 @@ export default {
     .el-col {
       height: 100%;
       position: relative;
+      box-sizing: border-box;
 
       & > div {
         height: 100%;
       }
+    }
+    .day {
+      border-left: 1px solid $primary-color;
     }
 
     &__timeLine {

@@ -1,9 +1,18 @@
 <template>
-  <div class="lesson" v-bind:style="styleObject">
-    <div class="lesson__subject">{{lesson.subject}}</div>
-    <div class="lesson__time">{{lesson.timeStart}} - {{lesson.timeEnd}}H</div>
-    <div class="lesson__room">{{lesson.room}}</div>
-  </div>
+  <el-popover placement="bottom" width="200" trigger="click">
+    <div class="lessonDetail">
+      <p>Subject {{lesson.subject}}</p>
+      <p>Time start: {{lesson.timeStart}}h</p>
+      <p>Time end: {{lesson.timeEnd}}h</p>
+      <p>Room: {{lesson.room}}</p>
+      <p>Teacher: {{lesson.teacher}}</p>
+    </div>
+    <div class="lesson" v-bind:style="styleObject" slot="reference">
+      <div class="lesson__subject">{{lesson.subject}}</div>
+      <div class="lesson__time">{{lesson.timeStart}} - {{lesson.timeEnd}}H</div>
+      <div v-if="lesson.timeEnd-lesson.timeStart>1.5" class="lesson__room">{{lesson.room}}</div>
+    </div>
+  </el-popover>
 </template>
 
 <script>
@@ -33,6 +42,7 @@ export default {
   left: 0;
   right: 0;
   font-size: 1.3rem;
+  cursor: pointer;
 
   display: flex;
   flex-flow: column nowrap;
@@ -49,6 +59,14 @@ export default {
     font-weight: bold;
   }
   &__room {
+  }
+}
+
+.lessonDetail {
+  font-size: 1.6rem;
+
+  & p:first-child {
+    font-weight: bold;
   }
 }
 </style>

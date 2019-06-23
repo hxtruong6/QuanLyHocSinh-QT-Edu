@@ -8,7 +8,7 @@
       ref="menu"
     >
       <el-menu-item index="dashboard" @click="onMenuItemClick">
-        <i class="el-icon-s-home"></i>
+        <i class="el-icon-school"></i>
         <span slot="title">Trang chủ</span>
       </el-menu-item>
       <el-menu-item index="schedule" @click="onMenuItemClick">
@@ -18,6 +18,10 @@
       <el-menu-item index="grade" @click="onMenuItemClick">
         <i class="el-icon-notebook-1"></i>
         <span slot="title">Điểm số</span>
+      </el-menu-item>
+      <el-menu-item index="notification" @click="onMenuItemClick">
+        <i class="el-icon-bell"></i>
+        <span slot="title">Thông báo</span>
       </el-menu-item>
     </el-menu>
   </el-aside>

@@ -2,7 +2,7 @@
 export default {
   fetch({ redirect }) {
     // redirect("/dashboard")
-    redirect("/schedule");
+    redirect("/grade");
     // redirect("/notification")
   }
 };

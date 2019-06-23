@@ -1,9 +1,19 @@
 <template>
   <el-aside class="sideBar" width="this.$ref.menu.clientWidth">
-    <el-menu default-active="1" class="sideBar__menu" :collapse="isCollapse" ref="menu">
-      <el-menu-item index="1">
+    <el-menu
+      router="true"
+      default-active="grade"
+      class="sideBar__menu"
+      :collapse="isCollapse"
+      ref="menu"
+    >
+      <el-menu-item index="schedule" @click="onMenuItemClick">
         <i class="el-icon-date"></i>
-        <span slot="title">Schedule</span>
+        <span slot="title">Thời khóa biểu</span>
+      </el-menu-item>
+      <el-menu-item index="grade" @click="onMenuItemClick">
+        <i class="el-icon-notebook-1"></i>
+        <span slot="title">Điểm số</span>
       </el-menu-item>
     </el-menu>
   </el-aside>
@@ -19,13 +29,22 @@ export default {
       isCollapse: state => state.app.isSideBarOpen
     })
   },
-  methods: {}
+  methods: {
+    onMenuItemClick(item) {
+      console.log("xxx 300 onMenuItemClick: ", item);
+    }
+  }
 };
 </script>
 
 <style lang='scss' scoped>
 .sideBar {
   max-width: 22%;
+  font-size: 1.6rem;
+
+  & span {
+    font-size: 1.6rem;
+  }
 
   &__menu {
     background-color: $primary-color-light;

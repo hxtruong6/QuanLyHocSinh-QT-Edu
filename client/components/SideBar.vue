@@ -1,12 +1,16 @@
 <template>
   <el-aside class="sideBar" width="this.$ref.menu.clientWidth">
     <el-menu
-      router="true"
-      default-active="grade"
       class="sideBar__menu"
+      :router="true"
+      :default-active="currPath"
       :collapse="isCollapse"
       ref="menu"
     >
+      <el-menu-item index="dashboard" @click="onMenuItemClick">
+        <i class="el-icon-s-home"></i>
+        <span slot="title">Trang chủ</span>
+      </el-menu-item>
       <el-menu-item index="schedule" @click="onMenuItemClick">
         <i class="el-icon-date"></i>
         <span slot="title">Thời khóa biểu</span>
@@ -26,12 +30,13 @@ export default {
   name: "SideBar",
   computed: {
     ...mapState({
-      isCollapse: state => state.app.isSideBarOpen
+      isCollapse: state => state.app.isSideBarOpen,
+      currPath: state => state.app.currPath
     })
   },
   methods: {
     onMenuItemClick(item) {
-      console.log("xxx 300 onMenuItemClick: ", item);
+      this.$store.commit("app/onSideBarClick", item.index);
     }
   }
 };

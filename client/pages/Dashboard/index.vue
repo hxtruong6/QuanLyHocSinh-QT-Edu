@@ -1,13 +1,5 @@
 <template>
-  <!-- <container :show-page-header="false">
-    <dashboard-container v-if="hasPermission('dashboard')"/>
-    <p v-else>
-      You don't have permission to view dashboard.
-    </p>
-  </container>-->
-  <div>
-    <!-- <el-input placeholder="Please input password" v-model="input" show-password></el-input> -->
-  </div>
+  <div>You don't have permission to view dashboard.</div>
 </template>
 
 <script>

@@ -84,11 +84,9 @@ export default {
   },
   methods: {
     calLessonPos(start, end) {
-      // console.log("xxx 2003 start end: ", start, end, this.$refs.lessonTime);
-
       const top = ((start - 6) / 13) * 100;
       const bottom = 100 - ((end - 6) / 13) * 100;
-      console.log("xxx 201 position cal: ", top, bottom);
+      // console.log("xxx 201 position cal: ", top, bottom);
       return { top, bottom };
     }
   }

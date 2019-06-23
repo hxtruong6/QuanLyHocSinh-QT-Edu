@@ -1,9 +1,9 @@
 <script>
+const currPath = localStorage.getItem("currPath") || "dashboard";
+
 export default {
   fetch({ redirect }) {
-    // redirect("/dashboard")
-    redirect("/grade");
-    // redirect("/notification")
+    redirect(`/${currPath}`);
   }
 };
 </script>

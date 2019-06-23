@@ -26,16 +26,22 @@
         <div class="grid-content bg-purple-light">Sunday</div>
       </el-col>
     </el-row>
-    <el-row class="timeTable__lesson lesson">
+    <el-row class="timeTable__lessonTime lessonTime" ref="lessonTime">
       <el-col :span="2">
-        <div class="grid-content bg-purple lesson__timeLine">
-          <div v-for="h in timeLine" v-bind:key="h">
-            <p>{{h}}H</p>
-          </div>
+        <div class="grid-content bg-purple lessonTime__timeLine">
+          <hour v-for="h in timeLine" v-bind:key="h" :hour="h"></hour>
         </div>
       </el-col>
       <el-col :span="3">
-        <div class="grid-content bg-purple-light"></div>
+        <div class="grid-content bg-purple-light">
+          <lesson
+            v-for="(lesson,index) in lessons"
+            v-bind:key="'lesson'+ index"
+            :lesson="lesson"
+            :position="calLessonPos(lesson.timeStart, lesson.timeEnd)"
+          ></lesson>
+          <!-- <lesson :lesson="lesson"></lesson> -->
+        </div>
       </el-col>
       <el-col :span="3">
         <div class="grid-content bg-purple"></div>
@@ -59,33 +65,34 @@
   </div>
 </template>
 <script>
+import Lesson from "~/components/TimeTable/Lesson.vue";
+import Hour from "~/components/TimeTable/Hour.vue";
 export default {
+  components: { Lesson, Hour },
   data() {
     return {
-      timeLine: Array.from({ length: 13 }, (v, k) => k + 6),
-      tableData: [
+      timeLine: Array.from({ length: 12 }, (v, k) => k + 6),
+      lessons: [
         {
-          date: "2016-05-03",
-          name: "Tom",
-          address: "No. 189, Grove St, Los Angeles"
+          subject: "Math",
+          timeStart: 6,
+          timeEnd: 8.5,
+          room: "F107"
         },
-        {
-          date: "2016-05-02",
-          name: "Tom",
-          address: "No. 189, Grove St, Los Angeles"
-        },
-        {
-          date: "2016-05-04",
-          name: "Tom",
-          address: "No. 189, Grove St, Los Angeles"
-        },
-        {
-          date: "2016-05-01",
-          name: "Tom",
-          address: "No. 189, Grove St, Los Angeles"
-        }
+        { subject: "IT", timeStart: 15.8, timeEnd: 17.6, room: "E07" },
+        { subject: "IT", timeStart: 10, timeEnd: 11, room: "E07" }
       ]
     };
+  },
+  methods: {
+    calLessonPos(start, end) {
+      // console.log("xxx 2003 start end: ", start, end, this.$refs.lessonTime);
+
+      const top = ((start - 6) / 12) * 100;
+      const bottom = 100 - ((end - 6) / 12) * 100;
+      console.log("xxx 201 position cal: ", top, bottom);
+      return { top, bottom };
+    }
   }
 };
 </script>
@@ -96,7 +103,8 @@ export default {
   margin: auto;
   .el-row {
     // margin-bottom: 1px;
-    border: 0.5px solid $white;
+    // border: 0.5px solid $white;
+    margin-bottom: 01px;
     &:last-child {
       margin-bottom: 0;
     }
@@ -122,14 +130,16 @@ export default {
   &__dayOfWeek {
     width: 100%;
   }
-  &__lesson,
-  .lesson {
+  &__lessonTime,
+  .lessonTime {
     width: 100%;
     height: 70%;
     min-height: 50%;
     max-height: 80%;
+
     .el-col {
       height: 100%;
+      position: relative;
 
       & > div {
         height: 100%;
@@ -140,7 +150,7 @@ export default {
       display: flex;
       flex-flow: column nowrap;
       align-items: center;
-      justify-content: space-around;
+      justify-content: space-between;
     }
   }
 }

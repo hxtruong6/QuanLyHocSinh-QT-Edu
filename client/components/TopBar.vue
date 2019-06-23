@@ -24,10 +24,8 @@ export default {
     return {
       header: "QT - EDU",
       a2: 2,
-      a1: '5fsa',
-      objs: {
-        
-      }
+      a1: "5fsa",
+      objs: {}
     };
   },
   methods: {
@@ -71,6 +69,8 @@ export default {
     position: relative;
     left: 20px;
     padding: 3px;
+    width: 40px;
+    height: 40px;
     max-width: 40px;
     max-height: 40px;
     animation: moveInLeft 1s ease-in-out;

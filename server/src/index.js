@@ -9,9 +9,7 @@ import routes from './routes';
 const app = express();
 
 // Application-Level Middleware
-
 app.use(cors());
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -35,6 +33,7 @@ app.use('/students', routes.student);
 // const eraseDatabaseOnSync = true;
 
 connectDb().then(async () => {
+  console.log(`Database is connected...`);
   // if (eraseDatabaseOnSync) {
   //   await Promise.all([
   //     models.User.deleteMany({}),

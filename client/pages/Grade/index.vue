@@ -27,12 +27,27 @@
     <div class="grade__result result" ref="gradeResult">
       <div class="result__title">Kết quả học tập</div>
       <el-table class="result__data" stripe :height="tableHeight" :data="tableData">
-        <el-table-column prop="yearSemester" label="NK/HK" width="180"></el-table-column>
+        <!--<el-table-column prop="yearSemester" label="NK/HK" width="180"></el-table-column>
         <el-table-column prop="subject" label="Môn học" width="180"></el-table-column>
         <el-table-column prop="credit" label="Số tín chỉ" width="180"></el-table-column>
         <el-table-column prop="grade" label="Điểm" width="180"></el-table-column>
-        <el-table-column prop="note" label="Ghi chú"></el-table-column>
+        <el-table-column prop="note" label="Ghi chú"></el-table-column>-->
+        <el-table-column prop="Subject" label="Môn học" width="180"></el-table-column>
+        <el-table-column prop="MounthTest" label="KT Bài cũ" width="180"></el-table-column>
+        <el-table-column prop="FifteenTest" label="KT 15'" width="180"></el-table-column>
+        <el-table-column prop="FourtyFiveTest1" label="KT 45'" width="180"></el-table-column>
+        <el-table-column prop="SemesterExam" label="Thi học kỳ"></el-table-column>
+        <el-table-column prop="TotalGrade" label="Tổng kết"></el-table-column>
       </el-table>
+    </div>
+
+    <div class="grade__info">
+      <div class="infoSelect year">
+        <button>Thống kê</button>
+      </div>
+      <div class="infoSelect session">
+        <button>Dự đoán</button>
+      </div>
     </div>
   </div>
 </template>
@@ -73,22 +88,37 @@ export default {
     },
     tableData: function() {
       const subject = {
-        year: "2016-2017",
+        /*year: "2016-2017",
         semester: 2,
         subject: "Môn Âm nhạc",
         credit: 4,
         grade: "10.0",
-        note: "Đây là ghi chú"
+        note: "Đây là ghi chú"*/
+        subject: "Toán",
+        mounth: 9,
+        fifteen: 10,
+        fourtyfive1: 8.5,
+        fourtyfive2: 10,
+        semesterexam: 10
       };
       let subs = [];
-      for (let i = 0; i < 20; i++) {
+      for (let i = 0; i < 11; i++) {
         subs.push(subject);
       }
 
       const data = subs.map(s => {
         return {
-          yearSemester: `${s.year}/${s.semester}`,
-          ...s
+          /*yearSemester: `${s.year}/${s.semester}`,
+          ...s*/
+          Subject: s.subject,
+          MounthTest: s.mounth,
+          FifteenTest: s.fifteen,
+          FourtyFiveTest1: s.fourtyfive1,
+          SemesterExam: s.semesterexam,
+          TotalGrade: (
+            (s.mounth + s.fifteen + 2 * s.fourtyfive1 + 3 * s.semesterexam) /
+            7
+          ).toFixed(2)
         };
       });
 
@@ -96,7 +126,7 @@ export default {
     },
     tableHeight: function() {
       if (!this.$refs.gradeResult || !this.$refs.gradeResult.clientHeight)
-        return 700;
+        return 600;
       return this.$refs.gradeResult.clientHeight - 20;
     }
   },
@@ -141,9 +171,11 @@ export default {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
+    margin-left: 5px;
 
     & > div {
       margin: auto 5px;
+      margin-left: 5px;
     }
   }
 

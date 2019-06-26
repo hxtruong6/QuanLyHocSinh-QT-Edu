@@ -3,10 +3,23 @@ const ClassHour = models.ClassHour;
 
 const list = async (req, res) => {
   try {
-    console.log('xxx 001 ');
     const classHours = await ClassHour.find();
-    console.log('xxx 002 ', classHours);
     return res.send(classHours);
+  } catch (error) {
+    return res.send(error);
+  }
+};
+
+const post = async (req, res) => {
+  try {
+    const { number, start, end } = req.body;
+    const classHour = await ClassHour.create({
+      number,
+      start,
+      end,
+    });
+
+    return res.send(classHour);
   } catch (error) {
     return res.send(error);
   }
@@ -14,4 +27,5 @@ const list = async (req, res) => {
 
 module.exports = {
   list,
+  post,
 };

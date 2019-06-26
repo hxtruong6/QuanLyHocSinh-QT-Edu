@@ -22,6 +22,7 @@ const get = async (req, res) => {
 
 const post = async (req, res) => {
   try {
+    const { sId, fullName } = req.body;
     const student = await Student.create({
       sId,
       fullName,
@@ -34,12 +35,14 @@ const post = async (req, res) => {
 };
 
 const remove = async (req, res) => {
-  console.log('xxx req: ', req.params);
   try {
-    const student = await req.context.models.Student.findById(req.params.studentId);
+    const { studentId } = req.params;
+    const student = await Student.findById(studentId);
+    console.log('xxx student will delete: ', student);
     let result = null;
     if (student) {
-      result = await req.context.models.Student.deleteOne();
+      result = await student.deleteOne();
+      console.log('xxx delete: ', result);
     }
     return res.send(result);
   } catch (error) {

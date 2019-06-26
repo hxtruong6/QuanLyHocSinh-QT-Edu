@@ -1,11 +1,9 @@
 import mongoose from 'mongoose';
 
-// import User from './user';
-// import Message from './message';
 import Student from './student';
+import ClassHour from './classHour';
 // import Grade from './grade';
 // import Lesson from './lesson';
-// import ClassHour from './classHour';
 // import Notification from './notification';
 
 const connectDb = () => {
@@ -17,8 +15,7 @@ const connectDb = () => {
 
 const models = {
   Student,
-  // User,
-  // Message,
+  ClassHour,
 };
 
 export { connectDb };

@@ -3,7 +3,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import express from 'express';
 
-import models, { connectDb } from './models';
+import { connectDb } from './models';
 import routes from './routes';
 
 const app = express();
@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // app.use('/users', routes.user);
 // app.use('/messages', routes.message);
 app.use('/students', routes.student);
-
+app.use('/classHours', routes.classHour);
 // Start
 
 // const eraseDatabaseOnSync = true;

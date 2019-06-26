@@ -1,11 +1,7 @@
-import session from './session';
-import user from './user';
-import message from './message';
 import student from './student';
+import classHour from './classHour';
 
 export default {
-  // session,
-  // user,
-  // message,
   student,
+  classHour,
 };

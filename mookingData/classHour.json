@@ -1,0 +1,35 @@
+[
+  {
+    "number": 1,
+    "start": {
+      "hour": 7,
+      "minute": 0
+    },
+    "end": {
+      "hour": 7,
+      "minute": 45
+    }
+  },
+  {
+    "number": 2,
+    "start": {
+      "hour": 7,
+      "minute": 50
+    },
+    "end": {
+      "hour": 8,
+      "minute": 35
+    }
+  },
+  {
+    "number": 3,
+    "start": {
+      "hour": 8,
+      "minute": 40
+    },
+    "end": {
+      "hour": 9,
+      "minute": 25
+    }
+  }
+]

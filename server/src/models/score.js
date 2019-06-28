@@ -4,8 +4,8 @@ const scoreSchema = new mongoose.Schema({
   final: Number,
   mid: Number,
   oralTest: [Number],
-  fifthMins: [Number],
-  sixtyMins: [Number],
+  fifteenMin: [Number],
+  fourteenMin: [Number],
   bonus: [Number],
   year: {
     type: String,

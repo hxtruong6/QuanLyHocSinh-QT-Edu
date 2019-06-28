@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 const notificationSchema = new mongoose.Schema({
   title: String,
   content: String,
+  date: String,
   type: {
     type: String,
     enum: ['ALL', 'CLASS', 'STUDENT'],

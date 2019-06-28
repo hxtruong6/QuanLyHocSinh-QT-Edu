@@ -2,7 +2,7 @@
   <div id="app">
     <top-bar/>
     <el-container>
-      <side-bar/>
+      <side-bar v-if="isLogined"/>
       <el-container>
         <el-main>
           <nuxt/>
@@ -17,10 +17,18 @@
 import TopBar from "~/components/TopBar.vue";
 import SideBar from "~/components/SideBar.vue";
 
+import { mapState } from "vuex";
+
 export default {
   components: {
     TopBar,
     SideBar
+  },
+  computed: {
+    ...mapState({
+      isLogined: state => state.student.isLogined,
+      
+    })
   }
 };
 </script>

@@ -18,7 +18,7 @@
       <el-input
         ref="username"
         v-model="loginForm.username"
-        placeholder="Username"
+        placeholder="Mã số học sinh"
         name="username"
         type="text"
         tabindex="1"
@@ -36,7 +36,7 @@
           ref="password"
           v-model="loginForm.password"
           :type="passwordType"
-          placeholder="Password"
+          placeholder="Mật khẩu"
           name="password"
           tabindex="2"
           autocomplete="on"
@@ -50,6 +50,7 @@
       </el-form-item>
     </el-tooltip>
 
+    <a class="forgotPass" href>Quên mật khẩu?</a>
     <el-button
       :loading="loading"
       type="primary"
@@ -62,6 +63,7 @@
 <script>
 export default {
   name: "Login",
+  props: ["changeState"],
   data() {
     const validateUsername = (rule, value, callback) => {
       if (!value && value.length < 6) {
@@ -149,10 +151,32 @@ export default {
 
 <style lang="scss" scoped>
 .login-form {
+  width: 80%;
+  height: 70%;
+  position: relative;
+  margin: auto;
+  top: 50px;
+
+  .show-pwd {
+    i {
+      opacity: 0.5;
+
+      &:hover {
+        opacity: 1;
+        transform: translateY(-2px) scale(1.2);
+      }
+    }
+  }
+
+  .forgotPass {
+    position: relative;
+  }
   .login-btn {
-    width: 100%;
+    width: 20%;
     height: 100%;
-    margin-bottom: 30px;
+    float: right;
+    position: relative;
+    padding: 10px;
   }
 }
 </style>

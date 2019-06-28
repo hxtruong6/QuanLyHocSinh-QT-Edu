@@ -1,6 +1,6 @@
 import pkg from './package';
 
-const flaskApiUrl = 'http://127.0.0.1:5000/';
+const apiUrl = 'http://localhost:5000/';
 export default {
     mode: 'spa',
 
@@ -70,7 +70,7 @@ export default {
     },
 
     axios: {
-        baseURL: flaskApiUrl,
+        baseURL: apiUrl,
         prefix: '/api',
         proxy: true,
     },
@@ -80,7 +80,7 @@ export default {
      */
     proxy: {
         '/api': {
-            target: flaskApiUrl,
+            target: apiUrl,
             ws: false,
             pathRewrite: { '^/api/': '' },
         },

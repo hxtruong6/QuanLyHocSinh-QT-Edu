@@ -90,9 +90,41 @@
           </el-card>
         </el-col>
       </el-row>
+      <el-button type="primary">Sửa đổi</el-button>
+      <el-button @click="updateStudent" type="primary">Cập nhập</el-button>
     </div>
   </div>
 </template>
+
+
+<script>
+export default {
+  name: "Userprofile",
+  data() {
+    return {
+      currentDate: new Date(),
+      form: {
+        name: "",
+        region: "",
+        date1: "",
+        date2: "",
+        delivery: false,
+        type: [],
+        resource: "",
+        desc: "",
+        radio: "1"
+      }
+    };
+  },
+  methods: {
+    updateStudent() {
+      const student = { ...this.form };
+      this.$store.commit("student/updateProfile", student);
+    }
+  }
+};
+</script>
+
 <style lang="scss" scoped>
 .userprofile {
   width: 100%;
@@ -130,24 +162,3 @@
 }
 </style>
 
-<script>
-export default {
-  name: "Userprofile",
-  data() {
-    return {
-      currentDate: new Date(),
-      form: {
-        name: "",
-        region: "",
-        date1: "",
-        date2: "",
-        delivery: false,
-        type: [],
-        resource: "",
-        desc: "",
-        radio: "1"
-      }
-    };
-  }
-};
-</script>

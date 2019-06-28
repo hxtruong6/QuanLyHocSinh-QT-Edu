@@ -61,6 +61,8 @@
 </template>
 
 <script>
+import { SHOW_PAGE } from "~/utils/currState";
+
 export default {
   name: "Login",
   props: ["changeState"],
@@ -127,18 +129,24 @@ export default {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true;
-          // this.$store
-          //   .dispatch("user/login", this.loginForm)
-          //   .then(() => {
-          //     this.$router.push({
-          //       path: this.redirect || "/",
-          //       query: this.otherQuery
-          //     });
-          //     this.loading = false;
-          //   })
-          //   .catch(() => {
-          //     this.loading = false;
-          //   });
+          this.$store
+            .dispatch("student/login", this.loginForm)
+            .then(() => {
+              this.loading = false;
+              this.$notify.success({
+                title: "OK",
+                message: "Đăng nhập thành công"
+              });
+              this.changeState(SHOW_PAGE);
+            })
+            .catch(err => {
+              this.loading = false;
+              this.$notify.error({
+                title: "Lỗi",
+                message: err
+              });
+
+            });
         } else {
           console.log("error submit!!");
           return false;
@@ -151,7 +159,7 @@ export default {
 
 <style lang="scss" scoped>
 .login-form {
-  width: 80%;
+  width: 65%;
   height: 70%;
   position: relative;
   margin: auto;

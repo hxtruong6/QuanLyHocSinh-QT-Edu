@@ -1,6 +1,6 @@
 <template>
   <el-header class="topBar">
-    <div class="side-bar-field">
+    <div v-if="isLogined" class="side-bar-field">
       <i v-if="isSideBarOpen" @click="onSideBarClick" class="el-icon-s-unfold side-bar-btn"></i>
       <i v-if="!isSideBarOpen" @click="onSideBarClick" class="el-icon-s-fold side-bar-btn"></i>
     </div>
@@ -17,7 +17,8 @@ export default {
   name: "TopBar",
   computed: {
     ...mapState({
-      isSideBarOpen: state => state.app.isSideBarOpen
+      isSideBarOpen: state => state.app.isSideBarOpen,
+      isLogined: state => state.student.isLogined
     })
   },
   data() {

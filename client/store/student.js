@@ -1,17 +1,14 @@
 export const state = () => ({
-    id: localStorage.getItem('studentId') || null,
+    sId: localStorage.getItem('studentId') || null,
     isLogined: localStorage.getItem('studentId') ? true : false,
     profile: {},
 });
 
 export const mutations = {
-    SET_ID: (state, id) => {
+    SET_ID: (state, sId) => {
         localStorage.setItem('studentId', sId);
-        state.id = sId;
-
-    },
-    logIn(state, sId, password) {
-        //TODO: call login to server
+        state.sId = sId;
+        state.isLogined = true;
     },
     signUp(state, sId, password, rePassword) {
         //TODO: call sign to server and save _id
@@ -39,26 +36,24 @@ export const mutations = {
     },
 };
 
+const S_ID = '1612899';
+const PASSWORD = '1234';
+
 export const actions = {
     login({ commit }, userInfo) {
-        const { sId: studentId, password } = userInfo;
+        const { username: sId, password } = userInfo;
+
         //TODO: call login to server
         // fake login
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                commit('');
+                if (sId !== S_ID || password !== PASSWORD) {
+                    reject('Tài khoản không chính xác!');
+                    return;
+                }
+                commit('SET_ID', sId);
                 resolve();
             }, 2000);
-            login({ username: username.trim(), password: password })
-                .then((response) => {
-                    const { data } = response;
-                    commit('SET_TOKEN', data.token);
-                    setToken(data.token);
-                    resolve();
-                })
-                .catch((error) => {
-                    reject(error);
-                });
         });
     },
 };

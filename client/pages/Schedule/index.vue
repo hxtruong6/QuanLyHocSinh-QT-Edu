@@ -29,7 +29,9 @@
     <el-row class="timeTable__lessonTime lessonTime" ref="lessonTime">
       <el-col :span="2">
         <div class="grid-content bg-purple lessonTime__timeLine">
-          <hour v-for="h in timeLine" v-bind:key="h" :hour="h"></hour>
+          <el-row class="clasHourRow" v-for="h in timeLine" v-bind:key="h">
+            <class-hour :number="h"></class-hour>
+          </el-row>
         </div>
       </el-col>
       <el-col class="day" :span="3" v-for="(lessons,idx) in days" v-bind:key="'day'+idx">
@@ -48,12 +50,12 @@
 </template>
 <script>
 import Lesson from "~/components/TimeTable/Lesson.vue";
-import Hour from "~/components/TimeTable/Hour.vue";
+import ClassHour from "~/components/TimeTable/ClassHour.vue";
 export default {
-  components: { Lesson, Hour },
+  components: { Lesson, ClassHour },
   data() {
     return {
-      timeLine: Array.from({ length: 13 }, (v, k) => k + 6),
+      timeLine: Array.from({ length: 10 }, (v, k) => k + 1),
       days: [
         [
           {
@@ -143,14 +145,14 @@ export default {
       }
     }
     .day {
-      border-left: 1px solid $primary-color;
+      border-left: 2px solid $primary-color;
     }
 
     &__timeLine {
       display: flex;
       flex-flow: column nowrap;
       align-items: center;
-      justify-content: space-between;
+      justify-content: space-around;
     }
   }
 }

@@ -1,0 +1,120 @@
+{ 
+    "_id" : ObjectId("5d15c5af89002419cace0cf2"), 
+    "number" : NumberInt(1), 
+    "start" : {
+        "hour" : NumberInt(7), 
+        "minute" : NumberInt(0)
+    }, 
+    "end" : {
+        "hour" : NumberInt(7), 
+        "minute" : NumberInt(45)
+    }
+}
+{ 
+    "_id" : ObjectId("5d15c5af89002419cace0cf3"), 
+    "number" : NumberInt(2), 
+    "start" : {
+        "hour" : NumberInt(7), 
+        "minute" : NumberInt(50)
+    }, 
+    "end" : {
+        "hour" : NumberInt(8), 
+        "minute" : NumberInt(35)
+    }
+}
+{ 
+    "_id" : ObjectId("5d15c5af89002419cace0cf4"), 
+    "number" : NumberInt(3), 
+    "start" : {
+        "hour" : NumberInt(8), 
+        "minute" : NumberInt(40)
+    }, 
+    "end" : {
+        "hour" : NumberInt(9), 
+        "minute" : NumberInt(25)
+    }
+}
+{ 
+    "_id" : ObjectId("5d15c5af89002419cace0cf5"), 
+    "number" : NumberInt(4), 
+    "start" : {
+        "hour" : NumberInt(10), 
+        "minute" : NumberInt(0)
+    }, 
+    "end" : {
+        "hour" : NumberInt(10), 
+        "minute" : NumberInt(45)
+    }
+}
+{ 
+    "_id" : ObjectId("5d15c5af89002419cace0cf6"), 
+    "number" : NumberInt(5), 
+    "start" : {
+        "hour" : NumberInt(10), 
+        "minute" : NumberInt(50)
+    }, 
+    "end" : {
+        "hour" : NumberInt(11), 
+        "minute" : NumberInt(35)
+    }
+}
+{ 
+    "_id" : ObjectId("5d15c5af89002419cace0cf7"), 
+    "number" : NumberInt(6), 
+    "start" : {
+        "hour" : NumberInt(13), 
+        "minute" : NumberInt(0)
+    }, 
+    "end" : {
+        "hour" : NumberInt(13), 
+        "minute" : NumberInt(45)
+    }
+}
+{ 
+    "_id" : ObjectId("5d15c5af89002419cace0cf8"), 
+    "number" : NumberInt(7), 
+    "start" : {
+        "hour" : NumberInt(13), 
+        "minute" : NumberInt(50)
+    }, 
+    "end" : {
+        "hour" : NumberInt(14), 
+        "minute" : NumberInt(35)
+    }
+}
+{ 
+    "_id" : ObjectId("5d15c5af89002419cace0cf9"), 
+    "number" : NumberInt(8), 
+    "start" : {
+        "hour" : NumberInt(14), 
+        "minute" : NumberInt(40)
+    }, 
+    "end" : {
+        "hour" : NumberInt(15), 
+        "minute" : NumberInt(25)
+    }
+}
+{ 
+    "_id" : ObjectId("5d15c5af89002419cace0cfa"), 
+    "number" : NumberInt(9), 
+    "start" : {
+        "hour" : NumberInt(15), 
+        "minute" : NumberInt(50)
+    }, 
+    "end" : {
+        "hour" : NumberInt(16), 
+        "minute" : NumberInt(35)
+    }
+}
+{ 
+    "_id" : ObjectId("5d15c5af89002419cace0cfb"), 
+    "number" : NumberInt(10), 
+    "start" : {
+        "hour" : NumberInt(16), 
+        "minute" : NumberInt(40)
+    }, 
+    "end" : {
+        "hour" : NumberInt(17), 
+        "minute" : NumberInt(25)
+    }
+}

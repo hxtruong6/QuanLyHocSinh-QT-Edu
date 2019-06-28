@@ -31,5 +31,82 @@
       "hour": 9,
       "minute": 25
     }
+  },
+  {
+    "number": 4,
+    "start": {
+      "hour": 10,
+      "minute": 0
+    },
+    "end": {
+      "hour": 10,
+      "minute": 45
+    }
+  },
+  {
+    "number": 5,
+    "start": {
+      "hour": 10,
+      "minute": 50
+    },
+    "end": {
+      "hour": 11,
+      "minute": 35
+    }
+  },
+  {
+    "number": 6,
+    "start": {
+      "hour": 13,
+      "minute": 0
+    },
+    "end": {
+      "hour": 13,
+      "minute": 45
+    }
+  },
+  {
+    "number": 7,
+    "start": {
+      "hour": 13,
+      "minute": 50
+    },
+    "end": {
+      "hour": 14,
+      "minute": 35
+    }
+  },
+  {
+    "number": 8,
+    "start": {
+      "hour": 14,
+      "minute": 40
+    },
+    "end": {
+      "hour": 15,
+      "minute": 25
+    }
+  },
+  {
+    "number": 9,
+    "start": {
+      "hour": 15,
+      "minute": 50
+    },
+    "end": {
+      "hour": 16,
+      "minute": 35
+    }
+  },
+  {
+    "number": 10,
+    "start": {
+      "hour": 16,
+      "minute": 40
+    },
+    "end": {
+      "hour": 17,
+      "minute": 25
+    }
   }
 ]

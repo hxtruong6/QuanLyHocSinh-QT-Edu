@@ -15,7 +15,7 @@
         <i class="el-icon-date"></i>
         <span slot="title">Thời khóa biểu</span>
       </el-menu-item>
-      <el-menu-item index="grade" @click="onMenuItemClick">
+      <el-menu-item index="score" @click="onMenuItemClick">
         <i class="el-icon-notebook-1"></i>
         <span slot="title">Điểm số</span>
       </el-menu-item>
@@ -26,6 +26,10 @@
       <el-menu-item index="notification" @click="onMenuItemClick">
         <i class="el-icon-bell"></i>
         <span slot="title">Thông báo</span>
+      </el-menu-item>
+      <el-menu-item index="profile" @click="onMenuItemClick">
+        <i class="el-icon-bell"></i>
+        <span slot="title">Cá nhân</span>
       </el-menu-item>
     </el-menu>
   </el-aside>

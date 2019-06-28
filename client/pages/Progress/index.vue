@@ -22,7 +22,7 @@
         <el-table-column prop="FifteenTest" label="KT 15'" width="180"></el-table-column>
         <el-table-column prop="FourtyFiveTest1" label="KT 45'" width="180"></el-table-column>
         <el-table-column prop="SemesterExam" label="Thi học kỳ"></el-table-column>
-        <el-table-column prop="TotalGrade" label="Tổng kết"></el-table-column>
+        <el-table-column prop="TotalScore" label="Tổng kết"></el-table-column>
       </el-table>
     </div>
 
@@ -34,7 +34,7 @@
         <el-table-column prop="FifteenTest" label="KT 15'" width="180"></el-table-column>
         <el-table-column prop="FourtyFiveTest1" label="KT 45'" width="180"></el-table-column>
         <el-table-column prop="SemesterExam" label="Thi học kỳ"></el-table-column>
-        <el-table-column prop="TotalGrade" label="Tổng kết"></el-table-column>
+        <el-table-column prop="TotalScore" label="Tổng kết"></el-table-column>
       </el-table>
     </div>
 
@@ -46,7 +46,7 @@
         <el-table-column prop="FifteenTest" label="KT 15'" width="180"></el-table-column>
         <el-table-column prop="FourtyFiveTest1" label="KT 45'" width="180"></el-table-column>
         <el-table-column prop="SemesterExam" label="Thi học kỳ"></el-table-column>
-        <el-table-column prop="TotalGrade" label="Tổng kết"></el-table-column>
+        <el-table-column prop="TotalScore" label="Tổng kết"></el-table-column>
       </el-table>
     </div>
   </div>
@@ -97,7 +97,7 @@ export default {
           FifteenTest: s.fifteen,
           FourtyFiveTest1: s.fourtyfive1,
           SemesterExam: s.semesterexam,
-          TotalGrade: (
+          TotalScore: (
             (s.mounth + s.fifteen + 2 * s.fourtyfive1 + 3 * s.semesterexam) /
             7
           ).toFixed(2)
@@ -128,7 +128,7 @@ export default {
           FifteenTest: s.fifteen,
           FourtyFiveTest1: s.fourtyfive1,
           SemesterExam: s.semesterexam,
-          TotalGrade: (
+          TotalScore: (
             (s.mounth + s.fifteen + 2 * s.fourtyfive1 + 3 * s.semesterexam) /
             7
           ).toFixed(2)
@@ -159,7 +159,7 @@ export default {
           FifteenTest: s.fifteen,
           FourtyFiveTest1: s.fourtyfive1,
           SemesterExam: s.semesterexam,
-          TotalGrade: (
+          TotalScore: (
             (s.mounth + s.fifteen + 2 * s.fourtyfive1 + 3 * s.semesterexam) /
             7
           ).toFixed(2)

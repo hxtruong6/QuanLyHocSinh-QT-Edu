@@ -5,25 +5,25 @@
         <div class="grid-content bg-purple"></div>
       </el-col>
       <el-col :span="3">
-        <div class="grid-content bg-purple-light">Monday</div>
+        <div class="grid-content bg-purple-light">Thứ 2</div>
       </el-col>
       <el-col :span="3">
-        <div class="grid-content bg-purple">Tuesday</div>
+        <div class="grid-content bg-purple">Thứ 3</div>
       </el-col>
       <el-col :span="3">
-        <div class="grid-content bg-purple-light">Wednesday</div>
+        <div class="grid-content bg-purple-light">Thứ 4</div>
       </el-col>
       <el-col :span="3">
-        <div class="grid-content bg-purple">Thursday</div>
+        <div class="grid-content bg-purple">Thứ 5</div>
       </el-col>
       <el-col :span="3">
-        <div class="grid-content bg-purple-light">Friday</div>
+        <div class="grid-content bg-purple-light">Thứ 6</div>
       </el-col>
       <el-col :span="3">
-        <div class="grid-content bg-purple">Saturday</div>
+        <div class="grid-content bg-purple">Thứ 7</div>
       </el-col>
       <el-col :span="3">
-        <div class="grid-content bg-purple-light">Sunday</div>
+        <div class="grid-content bg-purple-light">Chủ nhật</div>
       </el-col>
     </el-row>
     <el-row class="timeTable__lessonTime lessonTime" ref="lessonTime">

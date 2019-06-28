@@ -25,6 +25,6 @@ const scoreSchema = new mongoose.Schema({
   },
 });
 
-const Score = mongoose.model('scores', scoreSchema);
+const Score = mongoose.model('Score', scoreSchema);
 
 export default Score;

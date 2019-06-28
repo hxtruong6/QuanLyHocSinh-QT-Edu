@@ -13,10 +13,16 @@ const notificationSchema = new mongoose.Schema({
       return this.type === 'CLASS';
     },
   },
-  studentId: {
-    type: String,
-    required: function() {
-      return this.type === 'STUDENT';
+  student: {
+    id: {
+      type: String,
+      required: function() {
+        return this.type === 'STUDENT';
+      },
+    },
+    seen: {
+      type: Boolean,
+      default: false,
     },
   },
 });

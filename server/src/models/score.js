@@ -19,9 +19,12 @@ const scoreSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  student: { type: mongoose.Schema.Types.ObjectId, ref: 'Student' },
+  student: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Student',
+  },
 });
 
-const Score = mongoose.model('Score', scoreSchema);
+const Score = mongoose.model('scores', scoreSchema);
 
 export default Score;

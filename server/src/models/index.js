@@ -2,7 +2,8 @@ import mongoose from 'mongoose';
 
 import Student from './student';
 import ClassHour from './classHour';
-// import Grade from './grade';
+import Lesson from './lesson';
+import Score from './score';
 // import Lesson from './lesson';
 // import Notification from './notification';
 
@@ -16,6 +17,8 @@ const connectDb = () => {
 const models = {
   Student,
   ClassHour,
+  Lesson,
+  Score,
 };
 
 export { connectDb };

@@ -19,6 +19,6 @@ const studentSchema = new mongoose.Schema({
 //   this.model('Student').deleteMany({ student: this._id }, next);
 // });
 
-const Student = mongoose.model('Student', studentSchema);
+const Student = mongoose.model('students', studentSchema);
 
 export default Student;

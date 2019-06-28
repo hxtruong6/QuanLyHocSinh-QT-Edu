@@ -1,7 +1,9 @@
 import student from './student';
-import classHour from './classHour';
+import schedule from './schedule';
+import score from './score';
 
 module.exports = {
   student,
-  classHour,
+  schedule,
+  score,
 };

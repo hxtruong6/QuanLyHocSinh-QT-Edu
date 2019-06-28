@@ -23,11 +23,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes
 
-// app.use('/session', routes.session);
-// app.use('/users', routes.user);
-// app.use('/messages', routes.message);
 app.use('/students', routes.student);
-app.use('/claSSHours', routes.classHour);
+app.use('/schedule', routes.schedule);
+app.use('/scores', routes.score);
 // Start
 
 // const eraseDatabaseOnSync = true;

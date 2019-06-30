@@ -8,11 +8,11 @@
     label-position="left"
   >
     <div class="title-container">
-      <h3 class="title">Đăng nhập</h3>
+      <h3 class="title" style="text-align: center; margin-bottom: 20px">Đăng nhập</h3>
     </div>
 
     <el-form-item prop="username">
-      <span class="svg-container">
+      <!--<span class="svg-container">
         <i class="el-icon-user"></i>
       </span>
       <el-input
@@ -23,12 +23,26 @@
         type="text"
         tabindex="1"
         autocomplete="on"
-      />
+      />-->
+      <div style="display: flex; width: 100%; margin-left: 150px">
+        <i class="el-icon-user my-icon"></i>
+        <!--<el-input placeholder="mssv" class="input-field"></el-input>-->
+        <input
+          class="input-field"
+          ref="username"
+          v-model="loginForm.username"
+          placeholder="Mã số học sinh"
+          name="username"
+          type="text"
+          tabindex="1"
+          autocomplete="on"
+        />
+      </div>
     </el-form-item>
 
     <el-tooltip v-model="capsTooltip" content="Caps lock is On" placement="right" manual>
       <el-form-item prop="password">
-        <span class="svg-container">
+        <!--<span class="svg-container">
           <i class="el-icon-lock"></i>
         </span>
         <el-input
@@ -43,20 +57,63 @@
           @keyup.native="checkCapslock"
           @blur="capsTooltip = false"
           @keyup.enter.native="handleLogin"
-        />
-        <span class="show-pwd" @click="showPwd">
-          <i class="el-icon-view"/>
-        </span>
+        />-->
+
+        <div style="display: flex; width: 100%; margin-left: 150px">
+          <i class="el-icon-lock my-icon"></i>
+          <!--<el-input placeholder="mssv" class="input-field"></el-input>-->
+          <input
+            class="input-field"
+            :key="passwordType"
+            ref="password"
+            v-model="loginForm.password"
+            :type="passwordType"
+            placeholder="Mật khẩu"
+            name="password"
+            tabindex="2"
+            autocomplete="on"
+            @keyup.native="checkCapslock"
+            @blur="capsTooltip = false"
+            @keyup.enter.native="handleLogin"
+          />
+
+          <!--<span
+            class="show-pwd"
+            @click="showPwd"
+            style="postion: relative; font-size: 20px; margin-left: -80px; z-index: 999"
+          >
+            <i class="el-icon-view" />
+          </span>-->
+          <i class="el-icon-view show-pwd" @click="showPwd" 
+          style="postion: relative; font-size: 20px; padding: 10px; margin-left: -40px"/>
+        </div>
+
+        <!--<span class="show-pwd" @click="showPwd">
+          <i class="el-icon-view" />
+        </span>-->
       </el-form-item>
     </el-tooltip>
 
-    <a class="forgotPass" href>Quên mật khẩu?</a>
+    <el-form-item>
+      <div style="display: flex; width: 100%; margin-left: 150px">
+        <a class="forgotPass" href>Quên mật khẩu?</a>
+        <el-button
+          :loading="loading"
+          type="primary"
+          class="login-btn"
+          @click.native.prevent="handleLogin" 
+          style="margin-left: 250px"
+        >Đăng nhập</el-button>
+      </div>
+    </el-form-item>
+
+    <!--<a class="forgotPass" href>Quên mật khẩu?</a>
     <el-button
       :loading="loading"
       type="primary"
       class="login-btn"
       @click.native.prevent="handleLogin"
-    >Login</el-button>
+    >Login</el-button>-->
   </el-form>
 </template>
 
@@ -145,7 +202,6 @@ export default {
                 title: "Lỗi",
                 message: err
               });
-
             });
         } else {
           console.log("error submit!!");
@@ -164,6 +220,31 @@ export default {
   position: relative;
   margin: auto;
   top: 50px;
+  //border: 1px solid;
+  //border-radius: 5px;
+  //background: black;
+
+  .my-icon {
+    padding: 10px;
+    background: dodgerblue;
+    color: white;
+    min-width: 50px;
+    text-align: center;
+    font-size: 20px;
+    height: 41px;
+  }
+
+  .input-field {
+    width: 55%;
+    padding: 10px;
+    outline: none;
+    //margin-left: 50px;
+    margin-bottom: 20px;
+  }
+
+  .input-field:focus {
+    border: 2px solid dodgerblue;
+  }
 
   .show-pwd {
     i {

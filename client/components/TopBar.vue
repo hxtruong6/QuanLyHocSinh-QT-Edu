@@ -43,9 +43,9 @@ export default {
 <style lang='scss' scoped>
 .topBar {
   background-color: $primary-color;
-  border-radius: 4px;
+  //border-radius: 4px;
   min-height: 40px;
-  max-height: 50px;
+  max-height: 60px;
   position: relative;
   display: flex;
 
@@ -82,7 +82,9 @@ export default {
     margin: auto;
     text-transform: uppercase;
     color: $white;
-    font-size: 2rem;
+    //font-size: 2rem;
+    font-size: 30px;
+    font-weight: bold;
   }
 }
 </style>

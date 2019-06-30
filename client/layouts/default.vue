@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <top-bar/>
+    <top-bar />
     <el-container>
-      <side-bar v-if="isLogined"/>
+      <side-bar v-if="isLogined" />
       <el-container>
         <el-main>
-          <nuxt/>
+          <nuxt />
         </el-main>
         <!-- <el-footer>Footer</el-footer> -->
       </el-container>
@@ -26,8 +26,7 @@ export default {
   },
   computed: {
     ...mapState({
-      isLogined: state => state.student.isLogined,
-      
+      isLogined: state => state.student.isLogined
     })
   }
 };
@@ -43,5 +42,7 @@ export default {
   color: $word-color;
   position: absolute;
   font-size: 1.6rem;
+  //background: #f9faff;
+  background: #fdfdfd;
 }
 </style>

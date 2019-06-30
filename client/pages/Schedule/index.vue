@@ -50,11 +50,13 @@
 </template>
 <script>
 import Lesson from "~/components/TimeTable/Lesson.vue";
-import ClassHour from "~/components/TimeTable/ClassHour.vue";
+//import ClassHour from "~/components/TimeTable/ClassHour.vue";
+import ClassHour from "~/components/TimeTable/Hour.vue";
 export default {
   components: { Lesson, ClassHour },
   data() {
     return {
+      //loading: true,
       timeLine: Array.from({ length: 10 }, (v, k) => k + 1),
       days: [
         [

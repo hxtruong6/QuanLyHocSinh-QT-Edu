@@ -28,10 +28,15 @@
     </el-row>
     <el-row class="timeTable__lessonTime lessonTime" ref="lessonTime">
       <el-col :span="2">
-        <div class="grid-content bg-purple lessonTime__timeLine">
-          <el-row class="clasHourRow" v-for="h in timeLine" v-bind:key="h">
-            <class-hour :number="h"></class-hour>
-          </el-row>
+        <div class="grid-content bg-purple">
+          <class-hour
+            v-for="(h,idx) in timeLine"
+            :key="h.number"
+            class="clasHourRow"
+            v-bind:style="{'top': timeLinePos[idx]}"
+            :number="h.number"
+            :topPos="timeLinePos[idx]"
+          ></class-hour>
         </div>
       </el-col>
       <el-col class="day" :span="3" v-for="(lessons,idx) in days" v-bind:key="'day'+idx">
@@ -40,9 +45,8 @@
             v-for="(lesson,index) in lessons"
             v-bind:key="'lesson'+ index"
             :lesson="lesson"
-            :position="calLessonPos(lesson.timeStart, lesson.timeEnd)"
+            :position="index*lessonTimeHeight"
           ></lesson>
-          <!-- <lesson :lesson="lesson"></lesson> -->
         </div>
       </el-col>
     </el-row>
@@ -50,14 +54,16 @@
 </template>
 <script>
 import Lesson from "~/components/TimeTable/Lesson.vue";
-//import ClassHour from "~/components/TimeTable/ClassHour.vue";
-import ClassHour from "~/components/TimeTable/Hour.vue";
+import ClassHour from "~/components/TimeTable/ClassHour.vue";
+
 export default {
   components: { Lesson, ClassHour },
   data() {
     return {
-      //loading: true,
-      timeLine: Array.from({ length: 10 }, (v, k) => k + 1),
+      timeLine: Array.from({ length: 10 }, (v, k) => ({
+        number: k + 1,
+        top: 24 * k
+      })),
       days: [
         [
           {
@@ -83,27 +89,34 @@ export default {
         [],
         [],
         []
-      ]
+      ],
+      totalLessonTimeHeight: 600,
+      lessonTimeHeight: 60
     };
   },
-  methods: {
-    calLessonPos(start, end) {
-      const top = ((start - 6) / 13) * 100;
-      const bottom = 100 - ((end - 6) / 13) * 100;
-      // console.log("xxx 201 position cal: ", top, bottom);
-      return { top, bottom };
+  computed: {
+    timeLinePos: function() {
+      console.log(this.timeLine.map(tl => tl.top));
+      return this.timeLine.map(tl => tl.top);
     }
+  },
+  mounted() {
+    this.totalLessonTimeHeight = this.$refs.lessonTime.$el.clientHeight;
+    this.$nextTick(() => {
+      for (let i = 0; i < this.timeLine.length; i++) {
+        this.timeLine[i].top = (i * this.totalLessonTimeHeight) / 10;
+      }
+    });
   }
 };
 </script>
+
 <style lang="scss" scoped>
 .timeTable {
   width: 100%;
   height: 100%;
   margin: auto;
   .el-row {
-    // margin-bottom: 1px;
-    // border: 0.5px solid $white;
     margin-bottom: 01px;
     &:last-child {
       margin-bottom: 0;
@@ -135,7 +148,7 @@ export default {
     width: 100%;
     height: 70%;
     min-height: 50%;
-    max-height: 80%;
+    height: 600px;
 
     .el-col {
       height: 100%;

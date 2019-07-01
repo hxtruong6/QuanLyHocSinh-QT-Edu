@@ -106,14 +106,6 @@
         >Đăng nhập</el-button>
       </div>
     </el-form-item>
-
-    <!--<a class="forgotPass" href>Quên mật khẩu?</a>
-    <el-button
-      :loading="loading"
-      type="primary"
-      class="login-btn"
-      @click.native.prevent="handleLogin"
-    >Login</el-button>-->
   </el-form>
 </template>
 

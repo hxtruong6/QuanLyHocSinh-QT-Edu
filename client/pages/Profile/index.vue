@@ -10,6 +10,11 @@
             </div>
           </el-card>
         </el-col>
+        <el-button
+          style="padding: 10px; margin: auto; display: flex;"
+          type="primary"
+          @click="logout"
+        >Đăng xuất</el-button>
       </el-row>
     </div>
 
@@ -146,6 +151,14 @@ export default {
     updateStudent() {
       const student = { ...this.form };
       this.$store.commit("student/updateProfile", student);
+    },
+    logout() {
+      localStorage.removeItem("studentId");
+      this.$store.commit("app/onSideBarClick", "dashboard");
+      this.$router.push("dashboard");
+      setTimeout(() => {
+        location.reload();
+      }, 100);
     }
   }
 };

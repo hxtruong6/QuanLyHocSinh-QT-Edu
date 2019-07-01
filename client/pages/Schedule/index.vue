@@ -118,7 +118,6 @@ export default {
   },
   computed: {
     timeLinePos: function() {
-      console.log(this.timeLine.map(tl => tl.top));
       return this.timeLine.map(tl => tl.top);
     }
   },

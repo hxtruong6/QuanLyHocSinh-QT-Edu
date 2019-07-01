@@ -14,15 +14,15 @@
       </div>
       <div class="desired" style="margin-left: -200px;" v-if="selectedTitle==='Khá'">
         <div style="width: 200px">Điểm trung bình</div>
-        <el-input placeholder="6.5 - 7.9" readonly=true     style="font-weight: bold"></el-input>
+        <el-input placeholder="6.5 - 7.9" :readonly="true" style="font-weight: bold"></el-input>
       </div>
       <div class="desired" style="margin-left: -200px;" v-if="selectedTitle==='Giỏi'">
         <div style="width: 200px">Điểm trung bình</div>
-        <el-input placeholder="8.0 - 8.9" readonly=true     style="font-weight: bold"></el-input>
+        <el-input placeholder="8.0 - 8.9" :readonly="true" style="font-weight: bold"></el-input>
       </div>
       <div class="desired" style="margin-left: -200px;" v-if="selectedTitle==='Xuất sắc'">
         <div style="width: 200px">Điểm trung bình</div>
-        <el-input placeholder="9.0 - 10" readonly=true     style="font-weight: bold"></el-input>
+        <el-input placeholder="9.0 - 10" :readonly="true" style="font-weight: bold"></el-input>
       </div>
     </div>
 

@@ -1,16 +1,14 @@
 <template>
-  <el-popover placement="bottom" width="200" trigger="click">
+  <el-popover placement="bottom" width="250" trigger="click">
     <div class="lessonDetail">
-      <p>Subject {{lesson.subject}}</p>
-      <p>Time start: {{lesson.timeStart}}h</p>
-      <p>Time end: {{lesson.timeEnd}}h</p>
-      <p>Room: {{lesson.room}}</p>
-      <p>Teacher: {{lesson.teacher}}</p>
+      <p>Môn học: {{lesson.subject}}</p>
+      <p>Phòng: {{lesson.room}}</p>
+      <p>Tiết: {{lesson.classHour}}</p>
+      <p>Giáo viên: {{lesson.teacher}}</p>
     </div>
     <div class="lesson" v-bind:style="styleObject" slot="reference">
       <div class="lesson__subject">{{lesson.subject}}</div>
-      <div class="lesson__time">{{lesson.timeStart}} - {{lesson.timeEnd}}H</div>
-      <div v-if="lesson.timeEnd-lesson.timeStart>1.5" class="lesson__room">{{lesson.room}}</div>
+      <div class="lesson__teacher">{{lesson.teacher}}</div>
     </div>
   </el-popover>
 </template>
@@ -22,8 +20,7 @@ export default {
   data() {
     return {
       styleObject: {
-        top: `${this.position.top}%`,
-        bottom: `${this.position.bottom}%`
+        top: `${this.position}px`
       }
     };
   }
@@ -43,6 +40,8 @@ export default {
   right: 0;
   font-size: 1.3rem;
   cursor: pointer;
+  height: 50px;
+  margin: auto;
 
   display: flex;
   flex-flow: column nowrap;
@@ -55,10 +54,8 @@ export default {
   &__subject {
     font-weight: bold;
   }
-  &__time {
-    font-weight: bold;
-  }
-  &__room {
+  &__teacher {
+    font-size: 1.1rem;
   }
 }
 

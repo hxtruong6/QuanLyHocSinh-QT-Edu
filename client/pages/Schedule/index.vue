@@ -45,7 +45,7 @@
             v-for="(lesson,index) in lessons"
             v-bind:key="'lesson'+ index"
             :lesson="lesson"
-            :position="index*lessonTimeHeight"
+            :position="(lesson.classHour-1)*lessonTimeHeight"
           ></lesson>
         </div>
       </el-col>
@@ -68,24 +68,46 @@ export default {
         [
           {
             subject: "Math",
-            timeStart: 6,
-            timeEnd: 8.5,
-            room: "F107"
+            classHour: 1,
+            room: "F107",
+            teacher: "Đỗ Hoàng Cường"
           },
-          { subject: "IT", timeStart: 15.8, timeEnd: 17.6, room: "E07" },
-          { subject: "IT", timeStart: 10, timeEnd: 11, room: "E07" }
+          {
+            subject: "IT",
+            classHour: 4,
+            room: "E07",
+            teacher: "Đỗ Hoàng Cường"
+          },
+          {
+            subject: "IT",
+            classHour: 6,
+            room: "E07",
+            teacher: "Đỗ Hoàng Cường"
+          }
         ],
         [
           {
             subject: "Math",
-            timeStart: 8,
-            timeEnd: 10,
-            room: "F107"
+            classHour: 3,
+            room: "F107",
+            teacher: "Đỗ Hoàng Cường"
           },
-          { subject: "IT", timeStart: 16, timeEnd: 17.6, room: "E07" }
+          {
+            subject: "IT",
+            classHour: 5,
+            room: "E07",
+            teacher: "Đỗ Hoàng Cường"
+          }
         ],
         [],
-        [{ subject: "IT", timeStart: 16, timeEnd: 17, room: "E07" }],
+        [
+          {
+            subject: "IT",
+            classHour: 9,
+            room: "E07",
+            teacher: "Đỗ Hoàng Cường"
+          }
+        ],
         [],
         [],
         []

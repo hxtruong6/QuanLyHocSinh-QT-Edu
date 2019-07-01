@@ -115,6 +115,7 @@
           </el-card>
         </el-col>
       </el-row>
+      <el-button style="position: absolute; right: 5%;" type="primary" icon="el-icon-edit" circle></el-button>
     </div>
   </div>
 </template>
